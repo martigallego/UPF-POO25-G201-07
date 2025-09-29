@@ -1,0 +1,17 @@
+MAC/LINUX
+Q1. What do you see on the command screen?
+    El arxiu README.md existeix al directori de treball pero no esta a staging.
+
+Q2. Use the command git status again and explain what has changed?
+    Ara el arxiu README.md esta al staging area, llest per fer commit.
+
+Q3. What is the output of the command? What is the current status?
+    +hola bon dia. Hi ha canvis modificats però encara no afegits a staging.
+
+Q4. What is a good message for the first commit? What is the current
+status?
+    Working directory net, canvis guardats al repositori local. "readme afegit"
+
+Q5. How many commits there are in the log? What are the first seven digits
+(letters and numbers) that identify the first README.md commit?
+    "690e244", 1 commit
