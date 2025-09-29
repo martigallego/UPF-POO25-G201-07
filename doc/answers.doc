@@ -1,13 +1,5 @@
-Q1: What do you see on the command screen?
-Q2: Use the command git status again and explain what has changed?
-Q3: What is the output of the command? What is the current status?
-Now add the README.md to the staging area.
-Q4: What is a good message for the first commit? What is the current
-status?
-Q5: How many commits there are in the log? What are the first seven digits
-(letters and numbers) that identify the first README.md commit?
-Q6: Modify one line of the README.md, add to the staging area and
-commit. Then use the command git show HEAD, and explain the output.
-Q7: Rewrite the sentence you restored with the previous command. After
-that, add the README.md to the staging area. Then, run a reset in the
-README.md and explain what happens.
+Q1: In GitHub Desktop, where does the new file appear?
+Q2: What do you see in GitHub Desktop?
+Q3: Where can you find the history of changes to the repository?
+Q4: Which version of README can you see now?
+Q5: What appears in the second tab at the very top?
