@@ -15,3 +15,14 @@ status?
 Q5. How many commits there are in the log? What are the first seven digits
 (letters and numbers) that identify the first README.md commit?
     "690e244", 1 commit
+
+Q6. Modify one line of the README.md, add to the staging area and
+commit. Then use the command git show HEAD, and explain the output.
+    El autor, la data i el missatge del commit. 
+
+Q7. Rewrite the sentence you restored with the previous command. After
+that, add the README.md to the staging area. Then, run a reset in the
+README.md and explain what happens.
+    Treu el arxiu del area de staging pero mante els canvis en la carpeta de treball. Al fer git status
+    es veu README.md modificat pero no preparat per el commit. 
+   
