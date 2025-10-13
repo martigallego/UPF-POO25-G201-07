@@ -38,7 +38,7 @@ public class Vector {
         return new Vector(result);
     }
 
-    public Vector multiply(Vector other){
+    public Vector multiplyElement(Vector other){
         double[] result = new double[this.getDim()];
         for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] * other.elems[i];
@@ -46,7 +46,7 @@ public class Vector {
         return new Vector(result);
     }
 
-    public Vector divide(Vector other){
+    public Vector divideElement(Vector other){
         double[] result = new double[this.getDim()];
         for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] / other.elems[i];
@@ -54,7 +54,7 @@ public class Vector {
         return new Vector(result);
     }
 
-    public Vector multiply(double scalar){
+    public Vector multiplyScalar(double scalar){
         double[] result = new double[this.getDim()];
         for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] * scalar;
@@ -62,4 +62,14 @@ public class Vector {
         return new Vector(result);
     }
     
+    public Vector divideScalar(double scalar){
+        double[] result = new double[this.getDim()];
+        for(int i = 0; i < this.getDim(); i++){
+            result[i] = this.elems[i] / scalar;
+        }
+        return new Vector(result);
+    }
+
+    
+
 }
