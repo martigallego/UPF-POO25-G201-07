@@ -23,37 +23,43 @@ public class Vector {
     //Methods
 
     public Vector add(Vector other){
-        double[] result = new double[this.elems.length];
-        for (int i = 0; i < this.elems.length; i++) {
+        double[] result = new double[this.getDim()];
+        for (int i = 0; i < this.getDim(); i++) {
             result[i] = this.elems[i] + other.elems[i];
         }
         return new Vector(result);
     }
 
     public Vector subtract(Vector other){
-        double[] result = new double[this.elems.length];
-        for(int i = 0; i < this.elems.length; i++){
+        double[] result = new double[this.getDim()];
+        for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] - other.elems[i];
         }
         return new Vector(result);
     }
 
     public Vector multiply(Vector other){
-        double[] result = new double[this.elems.length];
-        for(int i = 0; i < this.elems.length; i++){
+        double[] result = new double[this.getDim()];
+        for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] * other.elems[i];
         }
         return new Vector(result);
     }
 
     public Vector divide(Vector other){
-        double[] result = new double[this.elems.length];
-        for(int i = 0; i < this.elems.length; i++){
+        double[] result = new double[this.getDim()];
+        for(int i = 0; i < this.getDim(); i++){
             result[i] = this.elems[i] / other.elems[i];
         }
         return new Vector(result);
     }
 
-    
+    public Vector multiply(double scalar){
+        double[] result = new double[this.getDim()];
+        for(int i = 0; i < this.getDim(); i++){
+            result[i] = this.elems[i] * scalar;
+        }
+        return new Vector(result);
+    }
     
 }
