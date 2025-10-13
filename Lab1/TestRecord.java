@@ -22,39 +22,29 @@ public class TestRecord {
         //prova METODES
         Vector sum = v1.add(v2);
         System.out.println("v1 + v2 = " + sum);
-
-        // Subtract
+        
         Vector diff = v1.subtract(v2);
         System.out.println("v1 - v2 = " + diff);
 
-        // Element-wise multiply
         Vector elemMul = v1.multiplyElement(v2);
         System.out.println("v1 * v2 (element-wise) = " + elemMul);
 
-        // Element-wise divide
         Vector elemDiv = v2.divideElement(v1);
         System.out.println("v2 / v1 (element-wise) = " + elemDiv);
 
-        // Multiply by scalar
         Vector mulScalar = v1.multiplyScalar(2);
         System.out.println("v1 * 2 = " + mulScalar);
 
-        // Divide by scalar
         Vector divScalar = v2.divideScalar(2);
         System.out.println("v2 / 2 = " + divScalar);
 
-        // Square root of elements
-        Vector sqrtV1 = v1.sqrt(v1); // you can just pass v1; other parameter is ignored
+        Vector sqrtV1 = v1.sqrt(v1); 
         System.out.println("sqrt(v1) = " + sqrtV1);
 
-        // Dot product
         double dotProd = v1.dot(v2);
         System.out.println("v1 · v2 = " + dotProd);
 
-        // Norm
         double normV1 = v1.norm();
-        System.out.println("||v1|| = " + normV1);
-        
+        System.out.println("||v1|| = " + normV1);  
     }
-    
 }
