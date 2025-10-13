@@ -78,7 +78,13 @@ public class Vector {
         return new Vector(result);
     }
 
-
+    public double dot(Vector other){
+        double result = 0.00;
+        for(int i = 0; i < this.getDim(); i++){
+            result += this.elems[i] * other.elems[i];
+        }
+        return result;
+    }
 
     //ToString
 
