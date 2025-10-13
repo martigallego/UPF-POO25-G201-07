@@ -16,7 +16,7 @@ public class Vector {
         }
     }
 
-    public getDim(){
+    public int getDim(){
         return elems.length;
     }
 
