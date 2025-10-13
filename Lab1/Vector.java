@@ -5,8 +5,8 @@ public class Vector {
 
     //Constructors
 
-    public Vector(double[] elements) {
-        this.elements = elements.clone(); 
+    public Vector(double[] elems) {
+        this.elems = elems.clone(); 
     }
 
     public Vector(int dim, double val){
@@ -20,6 +20,8 @@ public class Vector {
         return elems.length;
     }
 
+    //Methods
+
     public Vector add(Vector other){
         double[] result = new double[this.elems.length];
         for (int i = 0; i < this.elems.length; i++) {
@@ -29,7 +31,19 @@ public class Vector {
     }
 
     public Vector substract(Vector other){
-        
+        double[] result = new double[this.elems.length];
+        for(int i = 0; i < this.elems.length; i++){
+            result[i] = this.elems[i] - other.elems[i];
+        }
+        return new Vector(result);
+    }
+
+    public Vector multiply(Vector other){
+        double[] result = new double[this.elems.length];
+        for(int i = 0; i < this.elems.length; i++){
+            result[i] = this.elems[i] * other.elems[i];
+        }
+        return new Vector(result);
     }
     
 }
