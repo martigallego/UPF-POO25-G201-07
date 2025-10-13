@@ -30,7 +30,7 @@ public class Vector {
         return new Vector(result);
     }
 
-    public Vector substract(Vector other){
+    public Vector subtract(Vector other){
         double[] result = new double[this.elems.length];
         for(int i = 0; i < this.elems.length; i++){
             result[i] = this.elems[i] - other.elems[i];

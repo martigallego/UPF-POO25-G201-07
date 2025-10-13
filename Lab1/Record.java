@@ -6,8 +6,8 @@ public class Record {
 
     //constructor
     public Record(Vector in, double out ){
-        in = input;
-        out = output;
+        input = in;
+        output = out;
     }
 
     //getters
