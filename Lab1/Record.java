@@ -20,7 +20,7 @@ public class Record {
     }
 
     public String toString(){
-        return "Input: "+input.toString()+ "// Output: "+ output;
+        return "Input: "+ input.toString()+ " // Output: "+ output;
     }
     
 }
