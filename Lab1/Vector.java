@@ -98,4 +98,7 @@ public class Vector {
         return sb.toString();
     }
 
+    public double norm(){
+        return Math.sqrt(this.dot(this));
+    }
 }
