@@ -8,10 +8,6 @@ public class TestRecord {
         Vector v1 = new Vector(valors1);
         Vector v2 = new Vector(valors2);
 
-
-
-
-
         //prova RECORDS
         Record r1 = new Record(v1, 10);
         System.out.println("(RECORD 1) "+ r1); 
