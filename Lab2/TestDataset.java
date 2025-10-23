@@ -22,10 +22,15 @@ public class TestDataset {
         System.out.println(d.toString());
     
         //dataset ESTANDARITZAT
-        StandardizedDataset ds = d.standardize();
-        
-        
+        StandarizedDataset ds = d.standardize();
+        System.out.println("DATASET ESTANDARITZAT");
+        System.out.println(ds.toString());
 
+        //transformar record
+        Record transformed = ds.transform(r2);
+        System.out.println("RECORD TRANSFORMAT");
+        System.out.println("Sense transformar: " + r2);
+        System.out.println("Transformat" + transformed);
     }
 
     
