@@ -11,7 +11,7 @@ public class TestDataset {
         Record r2 = new Record(v2, 20.0);
 
         //crear DATASET i afegir RECORDS
-        Dataset d  = new Dataset(2); //dataset mida 2
+        Dataset d  = new Dataset(3); //dataset mida 3
 
         d.addRecord(r1); //afegir el record 1
         d.addRecord(r2); //afegir el record 2
@@ -29,8 +29,8 @@ public class TestDataset {
         //transformar record
         Record transformed = ds.transform(r2);
         System.out.println("RECORD TRANSFORMAT");
-        System.out.println("Sense transformar: " + r2);
-        System.out.println("Transformat" + transformed);
+        System.out.println("Sense transformar:  " + r2);
+        System.out.println("Transformat:  " + transformed);
     }
 
     
