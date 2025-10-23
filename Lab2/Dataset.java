@@ -68,12 +68,12 @@ public class Dataset {
         return Math.sqrt(sum / data.size());
     }
     
-    public StandardizedDataset standardize() {
+    public StandarizedDataset standardize() {
             Vector mi = meanInput();
             Vector si = stdInput();
             double mo = meanOutput();
             double so = stdOutput();
-            return new StandardizedDataset(dim, mi, si, mo, so);
+            return new StandarizedDataset(dim, mi, si, mo, so);
         }
 
     public String toString() {
