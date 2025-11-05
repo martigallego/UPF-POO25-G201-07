@@ -22,6 +22,16 @@ public class Vector {
 
     //Methods
 
+    public Vector augment(){
+        double[] newElement = new double[this.getDim()+1];
+        newElement[0] = 1.0;
+        for(int i =0; i < this.getDim(); i++){
+            newElement[i+1] = this.elems[i];
+        }
+        return new Vector(newElement);
+
+    }
+
     public Vector add(Vector other){
         double[] result = new double[this.getDim()];
         for (int i = 0; i < this.getDim(); i++) {
