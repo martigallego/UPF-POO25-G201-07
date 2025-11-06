@@ -45,7 +45,7 @@ public class Algorithm {
     //metode: solve --> entrenar el model usant descens de gradient fins que el gradient sigui prou petit
     public Model solve(Dataset ds) {
         int inputDim = ds.getDim();         //dimensió d'entrada (nombre de features d'entrada)
-        Model m = new Model(inputDim + 1);  //nou model amb inputDim + 1 (per incloure el bias)
+        Model m = new Model(inputDim);  //nou model amb inputDim 
         Vector g = gradient(ds, m);     //calcula el primer gradient del model inicial (tots els pesos = 0)
         
         //bucle descens per gradient
