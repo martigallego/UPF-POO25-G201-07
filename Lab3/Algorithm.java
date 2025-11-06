@@ -4,6 +4,7 @@ public class Algorithm {
 
     private double learningRate;        //taxa d'aprenentatge (α) --> controla la mida del pas del gradient descent
     private double stoppingCriterion;   //criteri de parada: quan el gradient és prou petit, l'entrenament s'atura
+    private int maxIterations = 10000; //nombre màxim d'iteracions per evitar bucles infinits (opcional)
 
     //constructor --> inicialitza la taxa d'aprenentatge i el criteri de parada
     public Algorithm(double lr, double sc){
@@ -49,15 +50,18 @@ public class Algorithm {
         Vector g = gradient(ds, m);     //calcula el primer gradient del model inicial (tots els pesos = 0)
         
         //bucle descens per gradient
-        while (g.norm() > stoppingCriterion) {        
+        int iterations = 0;
+        while (g.norm() > stoppingCriterion && iterations < maxIterations) {
             // θ = θ - α * g
             m.update(g, learningRate);
 
             //calcular el gradient amb els nous paràmetres
             g = gradient(ds, m);
+            iterations++;
         }
 
-        //quan el gradient és petit --> retorna el model entrenat
+        //quan el gradient és petit o s'ha arribat al màxim d'iteracions --> retorna el model entrenat
+        
         return m;
     }
 
