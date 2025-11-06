@@ -20,7 +20,8 @@ public class Dataset {
         return data;
     }
 
-    public void addRecord(Record r){
+    public void addRecord(Vector in, double out) {
+        Record r = new Record(in, out);
         data.add(r);
     }
 
