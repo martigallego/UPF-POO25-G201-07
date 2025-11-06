@@ -10,7 +10,7 @@ public class TestLearner {
         ds.addRecord(new Vector(new double[]{3.0}), 8.0);
 
         //crear algoritme taxa d'aprenentatge i criteri de parada
-        Algorithm alg = new Algorithm(0.001, 1e-6);
+        Algorithm alg = new Algorithm(0.1, 1e-6);
 
         //crear SupervisedLearner amb l’algorisme + dataset
         SupervisedLearner learner = new SupervisedLearner(alg, ds);
