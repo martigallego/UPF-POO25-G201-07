@@ -5,8 +5,8 @@ public class Model {
 
     // Constructor: rep la dimensió de l'input sense bias (afegirem +1 per al bias)
     public Model(int dimension){
-        //es crea un vector de mida dim + 1 ple de zeros
-        this.params = new Vector(dimension + 1, 0);
+        //es crea un vector de mida dim ple de zeros
+        this.params = new Vector(dimension, 0);
     }
     //getter per obtenir els parametres actuals del model
     public Vector getParams(){
@@ -15,11 +15,9 @@ public class Model {
 
     //metode per fer una prediccio a partir d'un vector d'entrada v
     public double predict(Vector v){
-        //afegim un 1 al principi del vector d'entrada per representar el bias
-        Vector vAug = v.augment();
-        //calcula el producte escalar (dot product) entre els parametres i el vector augmentat
-        return params.dot(vAug);
-    }
+    // v ja ve augmentat des d'Algorithm
+    return params.dot(v);
+}
 
     //metode per actualitzar els parametres del model segons un vector de gradient i una taxa d'aprenentatge
     public void update(Vector v, double rate){

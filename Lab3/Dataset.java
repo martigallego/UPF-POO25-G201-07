@@ -33,24 +33,38 @@ public class Dataset {
         return sum.divideScalar(data.size());
     }
 
+    //public Vector stdInput() {
+    //    Vector mean = meanInput();
+    //    double[] sumSq = new double[dim];
+
+    //    for( Record r : data){
+    //        Vector v = r.getInput().subtract(mean);
+    //        for (int i = 0; i < dim; i++){
+    //            sumSq[i] += Math.pow(v.toString().charAt(i), 2);
+    //        }
+    //    }
+
+    //    double[] std = new double[dim];
+
+   //     for (int i = 0; i < dim; i++){
+    //        std[i] = Math.sqrt(sumSq[i] / data.size());
+   //     }
+
+   //     return new Vector(std);
+    //}
+
     public Vector stdInput() {
         Vector mean = meanInput();
-        double[] sumSq = new double[dim];
+        Vector sumSq = new Vector(dim, 0.0);
 
-        for( Record r : data){
+        for (Record r : data) {
             Vector v = r.getInput().subtract(mean);
-            for (int i = 0; i < dim; i++){
-                sumSq[i] += Math.pow(v.toString().charAt(i), 2);
-            }
+            Vector vSquared = v.multiplyElement(v);
+            sumSq = sumSq.add(vSquared);
         }
 
-        double[] std = new double[dim];
-
-        for (int i = 0; i < dim; i++){
-            std[i] = Math.sqrt(sumSq[i] / data.size());
-        }
-
-        return new Vector(std);
+        sumSq = sumSq.divideScalar(data.size());
+        return sumSq.sqrt(sumSq);  
     }
 
     public double meanOutput() {
