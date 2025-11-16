@@ -15,8 +15,8 @@ public class Model {
 
     //metode per fer una prediccio a partir d'un vector d'entrada v
     public double predict(Vector v){
-    // v ja ve augmentat des d'Algorithm
-    return params.dot(v);
+        // v ja ve augmentat des d'Algorithm
+        return params.dot(v);
 }
 
     //metode per actualitzar els parametres del model segons un vector de gradient i una taxa d'aprenentatge
@@ -26,5 +26,10 @@ public class Model {
         //restem aquest pas dels paràmetres actuals: params = params - rate * v
         this.params = this.params.subtract(step);
     }
+
+    //metode tosrting
+    public String toString() {
+        return "Model parameters: " + params.toString();
+}
     
 }
