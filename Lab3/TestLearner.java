@@ -3,7 +3,7 @@ package Lab3;
 public class TestLearner {
     public static void main(String[] args){
         //crear dataset
-        Dataset ds = new Dataset(1);  // 1 feature
+        Dataset ds = new Dataset(1);  // 1 dimensio
         ds.addRecord(new Vector(new double[]{0.0}), 2.0);
         ds.addRecord(new Vector(new double[]{1.0}), 4.0);
         ds.addRecord(new Vector(new double[]{2.0}), 6.0);

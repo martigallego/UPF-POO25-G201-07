@@ -3,7 +3,7 @@ package Lab3;
 public class SupervisedLearner {
     private Algorithm algorithm;   //algoritme d'aprenentatge (descens de gradient)
     private Dataset dataset;       //dades d'entrenament (inputs + sortides reals)
-    private Model model;           // Model entrenat --> (pesos) després d'entrenar
+    private Model model;           // Model entrenat --> (inicialment null) --> (pesos) després d'entrenar
 
     //constructor
     public SupervisedLearner(Algorithm a, Dataset d){
