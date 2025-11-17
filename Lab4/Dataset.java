@@ -3,7 +3,7 @@ package Lab4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dataset {
+public abstract class Dataset {
     private int dim;
     private List<Record> data;
 
