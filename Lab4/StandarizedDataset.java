@@ -1,13 +1,12 @@
 package Lab4;
 
-public class StandarizedDataset extends Dataset{
-    private Vector mi; //mu in
-    private Vector si; //sigma in
-    private double mo; //mu out
-    private double so; //sigma out
+public class StandarizedDataset extends Dataset {
+    private Vector mi; // μ_in: mitjana input original
+    private Vector si; // σ_in: std input original
+    private double mo; // μ_out: mitjana output original
+    private double so; // σ_out: std output original
 
-    //constructor
-    public StandarizedDataset(int d,Vector mi, Vector si, double mo, double so){
+    public StandarizedDataset(int d, Vector mi, Vector si, double mo, double so){
         super(d);
         this.mi = mi;
         this.si = si;
@@ -15,17 +14,24 @@ public class StandarizedDataset extends Dataset{
         this.so = so;
     }
 
-
-    public Record transform(Record r){
-        //standaritzar vector entrada
-        Vector standardizedInput = r.getInput().subtract(mi).divideElement(si);
-
-        //normalitzar sortida
-        double standardizedOutput = (r.getOutput() - mo) / so;
-
-        //retorna new recordamb valors standaritzats
-        return new Record(standardizedInput, standardizedOutput);
-    }
- 
+    // ============================================
+    // Implementació dels mètodes abstractes
+    // ============================================
     
+    // Transforma un record de l'espai original a l'espai standarditzat
+    // x̂ = (x - μ_in) / σ_in
+    // ŷ = (y - μ_out) / σ_out
+    @Override
+    public Record transform(Record r){
+        Vector standarizedInput = r.getInput().subtract(mi).divideElement(si);
+        double standarizedOutput = (r.getOutput() - mo) / so;
+        return new Record(standarizedInput, standarizedOutput);
+    }
+
+    // Transformació inversa per l'output: de l'espai standarditzat a l'original
+    // y = v * σ_out + μ_out
+    @Override
+    public double output(double transformedOutput) {
+        return transformedOutput * so + mo;
+    }
 }
