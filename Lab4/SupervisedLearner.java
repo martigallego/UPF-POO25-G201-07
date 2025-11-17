@@ -1,4 +1,4 @@
-package Lab3;
+package Lab4;
 
 public class SupervisedLearner {
     private Algorithm algorithm;   //algoritme d'aprenentatge (descens de gradient)

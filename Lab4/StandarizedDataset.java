@@ -1,4 +1,4 @@
-package Lab3;
+package Lab4;
 
 public class StandarizedDataset extends Dataset{
     private Vector mi; //mu in
