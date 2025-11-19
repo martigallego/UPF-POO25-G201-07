@@ -6,7 +6,7 @@ public abstract class Algorithm {
     protected int maxIterations = 10000; //nombre màxim d'iteracions per evitar bucles infinits (opcional)
 
     //constructor --> inicialitza la taxa d'aprenentatge i el criteri de parada
-    public Algorithm(double lr, double sc){
+    public Algorithm(double lr){
         this.learningRate = lr;         //assigna el valor de lr (learning rate)
     }
 
