@@ -3,29 +3,31 @@ package Lab4;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Dataset {
+public abstract class Dataset { // classe abstracta
     private int dim;
     private List<Record> data;
 
+    // constructor
     public Dataset(int d){
         this.dim = d;
         this.data = new ArrayList<>();
     }
 
-    public int getDim(){
+    // getters
+    public int getDim(){ //obté dimensió d'entrada
         return dim;
     }
 
-    public List<Record> getData(){
+    public List<Record> getData(){ //obté llista de registres
         return data;
     }
 
-    public void addRecord(Vector in, double out) {
+    public void addRecord(Vector in, double out) { //afegeix un registre a la llista de dades
         Record r = new Record(in, out);
         data.add(r);
     }
 
-    // Mètodes abstractes: totes les subclasses els han d'implementar
+    // metodes abstractes
     public abstract Record transform(Record r);
     public abstract double output(double transformedOutput);
 

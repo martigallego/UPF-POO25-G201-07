@@ -1,28 +1,25 @@
 package Lab4;
 
-public class RawDataset extends Dataset {
+public class RawDataset extends Dataset { // classe que exten la classe abstracta Dataset
 
-    public RawDataset(int d) {
+    public RawDataset(int d) { // constructor
         super(d);
     }
 
-    // ============================================
-    // Mètodes per calcular estadístiques
-    // ============================================
     
-    public Vector meanInput(){
+    public Vector meanInput(){ // mitjana de les entrades
         Vector sum = new Vector(getDim(), 0.0);
-        for (Record r : getData()) {
+        for (Record r : getData()) { // recorre tots els registres i suma les entrades
             sum = sum.add(r.getInput());
         }
-        return sum.divideScalar(getData().size());
+        return sum.divideScalar(getData().size()); 
     }
 
-    public Vector stdInput() {
-        Vector mean = meanInput();
-        Vector sumSq = new Vector(getDim(), 0.0);
+    public Vector stdInput() { // desviació estàndard de les entrades
+        Vector mean = meanInput(); 
+        Vector sumSq = new Vector(getDim(), 0.0); 
 
-        for (Record r : getData()) {
+        for (Record r : getData()) { // recorre tots els registres i calcula la suma dels quadrats de les desviacions
             Vector v = r.getInput().subtract(mean);
             Vector vSquared = v.multiplyElement(v);
             sumSq = sumSq.add(vSquared);
@@ -32,37 +29,34 @@ public class RawDataset extends Dataset {
         return sumSq.sqrt(sumSq);  
     }
 
-    public double meanOutput() {
+    public double meanOutput() { // mitjana de les sortides
         double sum = 0;
-        for (Record r : getData()) {
+        for (Record r : getData()) { // recorre tots els registres i suma les sortides
             sum += r.getOutput();
         }
         return sum / getData().size();
     }
 
-    public double stdOutput() {
+    public double stdOutput() { // desviació estàndard de les sortides
         double mean = meanOutput();
         double sum = 0;
-        for (Record r : getData()) {
+        for (Record r : getData()) { // recorre tots els registres i calcula la suma dels quadrats de les desviacions
             double diff = r.getOutput() - mean;
             sum += diff * diff;
         }
         return Math.sqrt(sum / getData().size());
     }
 
-    // ============================================
-    // Mètode per crear StandardizedDataset
-    // ============================================
-    
+    // crea un nou StandarizedDataset amb els registres estandarditzats
     public StandarizedDataset standardize() {
         Vector mi = meanInput();
         Vector si = stdInput();
         double mo = meanOutput();
-        double so = stdOutput();
+        double so = stdOutput(); 
         
-        StandarizedDataset sds = new StandarizedDataset(getDim(), mi, si, mo, so);
+        StandarizedDataset sds = new StandarizedDataset(getDim(), mi, si, mo, so); // nou dataset estandarditzat
         
-        // Afegir tots els records transformats al nou dataset
+        // afegir tots els records transformats al nou dataset
         for (Record r : getData()) {
             Record transformed = sds.transform(r);
             sds.addRecord(transformed.getInput(), transformed.getOutput());
@@ -71,17 +65,17 @@ public class RawDataset extends Dataset {
         return sds;
     }
 
-    // Implementació dels mètodes abstractes
+    // implementació dels mètodes abstractes
     
-    // Per a RawDataset, transform NO modifica el record
+    // per a RawDataset, transform NO modifica el record
     @Override
     public Record transform(Record r) {
-        return r;  // Retorna el mateix record sense transformar
+        return r;  // retorna el mateix record sense transformar
     }
 
-    // Per a RawDataset, output NO modifica el valor
+    // per a RawDataset, output NO modifica el valor
     @Override
     public double output(double transformedOutput) {
-        return transformedOutput;  // Retorna el mateix valor
+        return transformedOutput;  // retorna el mateix valor
     }
 }
