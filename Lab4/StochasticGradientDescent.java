@@ -1,5 +1,6 @@
 package Lab4; 
 
+import java.util.ArrayList;
 import java.util.Collections; 
 import java.util.List;       //gestionar llistes de Record --> minibatch
 import java.util.Random;       //numeros aleatoris i barrejar les dades
@@ -19,28 +20,29 @@ public class StochasticGradientDescent extends Algorithm {
     
     //metode: calcular el gradient basat en un minibatch (SGD)
     public Vector stochasticGradient(Dataset ds, Model m) {
-        List<Record> fullData = ds.getData();    //llista de dades completa del Dataset
-        Collections.shuffle(fullData, random);   //barrejar dades per assegurar aleatorietat en el batch
+    //fem una còpia de la llista per no modificar l'original del dataset
+        List<Record> fullCopy = new ArrayList<>(ds.getData());
+        Collections.shuffle(fullCopy, random);
 
-        int actualBatchSize = Math.min(batchSize, fullData.size());   //mida real del batch, agafant el mínim entre batchSize i la mida total del dataset
+        int actualBatchSize = Math.min(batchSize, fullCopy.size());
+        List<Record> miniBatch = fullCopy.subList(0, actualBatchSize);
 
-        //minibatch --> subllista des de inici (0) fins a la mida del batch
-        List<Record> miniBatch = fullData.subList(0, actualBatchSize);
-        Vector g = new Vector(m.getParams().getDim(), 0);  //inicialitza el vector gradient (g) amb zeros i la dimensió del model
+        Vector g = new Vector(m.getParams().getDim(), 0);
 
-
-        //suma els gradients per a cada mostra del minibatch 
+        //calcula el gradient sobre les mostres TRANSFORMADES
         for (Record r : miniBatch) {
-            //gradient d'una sola mostra
-            g = g.add(gradient(r, m));
+        Record tr = ds.transform(r);    // <-- IMPORTANT: transformar la mostra abans del gradient
+        g = g.add(gradient(tr, m));
         }
-        //divideix entre la mida del batch 
-        g = g.divideScalar(actualBatchSize);
-        // x 2(factor que prové de la derivada de l'Error Quadràtic Mitjà
+
+        if (actualBatchSize > 0) {
+            g = g.divideScalar(actualBatchSize);
+        }
         g = g.multiplyScalar(2.0);
 
-        return g; 
+        return g;
     }
+
 
     @Override
     public Model solve(Dataset ds) {

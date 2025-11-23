@@ -20,9 +20,18 @@ public class SupervisedLearner {
 
     //metode predicció sobre un nou vector d'entrada
     public double predict(Vector v){
-        Vector x = v.augment();     //augmentem el vector per afegir el bias (1 al principi)
-        return model.predict(x);    //retorna la prediccio del model ja entrenat
-    } 
+        //crear un Record d
+        Record d = new Record(v, 0);
+        //transformar-lo al mateix espai que es va entrenar el model
+        Record transformed = dataset.transform(d);
+        //augmentar la seva entrada
+        Vector x = transformed.getInput().augment();
+        //predir en l'espai transformat
+        double pred = model.predict(x);
+        //aplicar transformació inversa
+        return dataset.output(pred);
+    }
+
 
     public String toString() {
         StringBuilder sb = new StringBuilder();

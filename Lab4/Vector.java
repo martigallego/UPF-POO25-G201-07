@@ -80,10 +80,10 @@ public class Vector {
         return new Vector(result);
     }
 
-    public Vector sqrt(Vector other){
+    public Vector sqrt() {
         double[] result = new double[this.getDim()];
-        for(int i = 0; i < this.getDim(); i++){
-            result[i] = Math.sqrt(this.elems[i]);
+        for (int i = 0; i < this.getDim(); i++) {
+        result[i] = Math.sqrt(this.elems[i]);
         }
         return new Vector(result);
     }

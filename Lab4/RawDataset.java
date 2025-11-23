@@ -26,7 +26,7 @@ public class RawDataset extends Dataset { // classe que exten la classe abstract
         }
 
         sumSq = sumSq.divideScalar(getData().size());
-        return sumSq.sqrt(sumSq);  
+        return sumSq.sqrt();  
     }
 
     public double meanOutput() { // mitjana de les sortides
